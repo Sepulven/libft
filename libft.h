@@ -6,13 +6,13 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 11:24:34 by asepulve          #+#    #+#             */
-/*   Updated: 2022/11/09 15:21:32 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/02/03 16:43:43 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
+# define LIBFT_H 1
 
-# define LIBFT_H
 # include <stdio.h>
 # include <string.h>
 # include <ctype.h>
@@ -24,6 +24,17 @@ typedef struct s_list
 	void			*content;
 	struct s_list	*next;
 }	t_list;
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 5
+# endif
+
+# define DECIMAL	"0123456789"
+# define U_HEXDECIMAL "0123456789ABCDEF"
+# define L_HEXDECIMAL "0123456789abcdef"
+
+char		*get_next_line(int fd);
+int			ft_printf(const char *format, ...);
 
 size_t		ft_strlen(const char *str);
 size_t		ft_strlcat(char *dst, const char *src, size_t size);

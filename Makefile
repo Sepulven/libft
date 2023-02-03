@@ -6,7 +6,7 @@
 #    By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/11 16:23:35 by asepulve          #+#    #+#              #
-#    Updated: 2022/11/11 16:54:07 by asepulve         ###   ########.fr        #
+#    Updated: 2023/02/03 16:44:18 by asepulve         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,25 +26,24 @@ SRC			=	ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c\
 				ft_strdup.c ft_striteri.c ft_strjoin.c ft_strlcat.c\
 				ft_strlcpy.c ft_strlen.c ft_strmapi.c ft_strncmp.c\
 				ft_strnstr.c ft_strrchr.c ft_strtrim.c ft_substr.c\
-				ft_tolower.c ft_toupper.c
+				ft_tolower.c ft_toupper.c ft_lstadd_back.c ft_lstadd_front.c\
+				ft_lstclear.c ft_lstdelone.c ft_lstite.c ft_lstlast.c ft_lstmap.c\
+				ft_lstnew.c ft_lstsize.c get_next_line.c ft_printf.c
+
 
 SRC_OBJ 	= 	${SRC:.c=.o}
 
-B_SRC 		= 	${wildcard ft_lst*.c}
-
-B_OBJ		= 	${B_SRC:.c=.o}
-
 all:		${NAME}
 $(NAME):	${SRC_OBJ}
-				ar rcs ${NAME} ${SRC_OBJ}
+			@ar rcs ${NAME} ${SRC_OBJ}
 
-bonus:		${B_OBJ}
-				ar rcs ${NAME} ${B_OBJ}
-
+ft_printf:
+			@make -s -C ./ft_printf
+	
 clean:
-				${RM} ${SRC_OBJ} ${B_OBJ}
+			@${RM} ${SRC_OBJ} ${B_OBJ}
 
 fclean:		clean
-				${RM} ${NAME}
+			@${RM} ${NAME}
 
 re:			fclean ${NAME}
